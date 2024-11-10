@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="e2a8d59b-0e34-4a7c-bf5f-db7a2bb34cde">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7cdcf241-ec75-4b09-a195-3a5a2b523198" />
+        <field name="Name" type="NameTableFieldDefinition" value="CREATURE_SPORE_SERVANT" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfd9805e4g49ecg6878g43b1g452dd4c204f7" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="Action_Glut_RaiseDeadViaSpores" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" value="DisableCombatlog;DisableOverhead;ApplyToDead;IgnoreResting" enumeration_type_name="StatusPropertyFlags" version="1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="StatusImmunity(TIMMASK_SPORES);StatusImmunity(BIBBERBANG_FUMES); Tag(PLANT); FactionOverride(Source); Tag(CREATURE_SPORE_SERVANT); StatusImmunity(SLEEPING);StatusImmunity(SLEEP); StatusImmunity(UNCONSCIOUS); StatusImmunity(HIDEOUS_LAUGHTER); StatusImmunity(CHARMED); StatusImmunity(FRIENDS); StatusImmunity(CROWN_OF_MADNESS); StatusImmunity(MIND_MASTERY); StatusImmunity(SG_Frightened); StatusImmunity(SG_Blinded); StatusImmunity(PARALYZED); StatusImmunity(HOLD_PERSON); Resistance(Poison, Resistant)" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb1071a47g72a9g6657g4c96g18646f65c374" version="1" />
+        <field name="MeshEffect" type="MeshEffectTableFieldDefinition" FadeIn="0" FadeOut="0">
+          <MeshEffectItem SkeletonResourceId="044ab023-7076-77e6-73c2-d0f26fca0776" VisualResourceId="7a66f0e1-4c66-bd94-b7b1-99615892293c" />
+          <MeshEffectItem SkeletonResourceId="e7b96b01-af9c-835b-e6b5-f1a75f7b538b" VisualResourceId="8ee0efee-2669-a2d3-b090-071abbdf3870" />
+          <MeshEffectItem SkeletonResourceId="5cbf9a7d-e450-3ad9-65a8-fc2a3cb05abe" VisualResourceId="40f3e032-36f1-2c39-4098-ed3b35bc1dd0" />
+          <MeshEffectItem SkeletonResourceId="edda91cd-d2be-3296-087c-45477f36daaa" VisualResourceId="40f3e032-36f1-2c39-4098-ed3b35bc1dd0" />
+          <MeshEffectItem SkeletonResourceId="957ba883-14f8-5b2d-6d5f-eb9c9ed61584" VisualResourceId="2e620199-b8a9-a985-b098-808970e9896a" />
+          <MeshEffectItem SkeletonResourceId="3c9f7092-5cf2-4ec8-f974-1b81a70f47da" VisualResourceId="40f3e032-36f1-2c39-4098-ed3b35bc1dd0" />
+          <MeshEffectItem SkeletonResourceId="af214a43-32fd-7b81-8305-0e1568a7099d" VisualResourceId="7a66f0e1-4c66-bd94-b7b1-99615892293c" />
+          <MeshEffectItem SkeletonResourceId="58047479-d2b9-3711-5748-71c5490bc083" VisualResourceId="7a66f0e1-4c66-bd94-b7b1-99615892293c" />
+          <MeshEffectItem SkeletonResourceId="6baabc59-f5c8-40ad-a911-c3348e009dfa" VisualResourceId="91802c9b-9824-f7c6-92db-863803e4108d" />
+          <MeshEffectItem SkeletonResourceId="24db7c92-bc91-a744-3500-2ac4377f1132" VisualResourceId="4211dd25-6881-5fb2-2936-a6d6111abe54" />
+          <MeshEffectItem SkeletonResourceId="6cd52578-f3ab-b6de-88e2-0a99b8889f87" VisualResourceId="89ef5aad-2b9e-34c3-69a6-5aafc298494f" />
+          <MeshEffectItem SkeletonResourceId="4048939c-da37-67f8-cb3f-9d8b392ba84e" VisualResourceId="a273ac9d-5767-d741-f630-b0c29a7975e9" />
+          <MeshEffectItem SkeletonResourceId="831fd72b-b887-d8fe-50b4-7cf8b376ad28" VisualResourceId="a273ac9d-5767-d741-f630-b0c29a7975e9" />
+          <MeshEffectItem SkeletonResourceId="26b5486d-fc27-592a-44f4-422eb7f0231e" VisualResourceId="da549999-f6e6-bd54-eeb1-777fa5dfde74" />
+          <MeshEffectItem SkeletonResourceId="0e2e85b3-320c-c27a-d9b2-bd853759dab6" VisualResourceId="81f3f281-3ff1-34a2-10c9-77c86ae956f3" />
+          <MeshEffectItem SkeletonResourceId="aefea06b-163c-6dfc-2993-9cf8ee9895f1" VisualResourceId="09b013c5-e974-4a43-5857-f4aa9c399fe5" />
+          <MeshEffectItem SkeletonResourceId="c9a28d63-6d55-a645-e521-ccb11bcd1513" VisualResourceId="8ee0efee-2669-a2d3-b090-071abbdf3870" />
+          <MeshEffectItem SkeletonResourceId="00802469-021a-737a-5474-3aab21956990" VisualResourceId="94d5176d-6c4d-ce9c-018f-8393bd4f2a64" />
+          <MeshEffectItem SkeletonResourceId="3c22df56-31dc-713a-9514-dbd639d3fe89" VisualResourceId="f2335f17-e47d-7b29-ccac-05bb31df76a8" />
+          <MeshEffectItem SkeletonResourceId="2ae5ddc9-0258-80fc-4c57-5f22a2b3a6b1" VisualResourceId="0f0f22e0-fe63-6d3d-a6b7-0aa3f4a6ab42" />
+          <MeshEffectItem SkeletonResourceId="9ebd420d-de6c-6ea4-56e1-5c8b148e9093" VisualResourceId="27cf626e-dd83-39f6-e402-74791dbfd66a" />
+        </field>
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="1eed3d7d-964a-4364-a075-d4242555ae6c" />
+        <field name="StatusGroups" type="EnumerationListTableFieldDefinition" value="SG_Condition" enumeration_type_name="StatusGroupFlags" version="1" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="Resurrect(100,65);" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

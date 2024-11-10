@@ -2,10 +2,7 @@
 # update-mod-files.bash: pull all BG3 Mod Project files into a single place for source code management
 # by mstephenson6, see guide at https://mod.io/g/baldursgate3/r/git-backups-for-mod-projects
 
-# TODO Look in "C:\Program Files (x86)\Steam\steamapps\common\Baldurs Gate 3\Data\Projects" and set MOD_SUBDIR_NAME
-# Example:
-# MOD_SUBDIR_NAME="CircleOfTheSpores_db7e15fd-b2fc-b159-4bbd-1baab34d8c3a"
-MOD_SUBDIR_NAME=""
+MOD_SUBDIR_NAME="CircleOfTheSpores_db7e15fd-b2fc-b159-4bbd-1baab34d8c3a"
 
 # This is the MinGW64 path to a Steam install of the toolkit
 BG3_DATA="/c/Program Files (x86)/Steam/steamapps/common/Baldurs Gate 3/Data"

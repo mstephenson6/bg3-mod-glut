@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="7" revision="1" build="3"/>
+    <region id="SpellLists">
+        <node id="root">
+            <children>
+                <node id="SpellList">
+                    <attribute id="Name" type="FixedString" value="Circle of the Spores Druid 2"/>
+                    <attribute id="Spells" type="LSString" value="Target_AnimatingSpores;Target_HaloOfSpores;Shout_SymbioticEntity"/>
+                    <attribute id="UUID" type="guid" value="e568eca4-b5e1-4b67-83d6-d831adf05e23"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

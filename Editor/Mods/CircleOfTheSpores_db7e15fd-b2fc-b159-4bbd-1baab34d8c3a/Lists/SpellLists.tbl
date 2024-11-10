@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="3f5063e7-e02b-4849-a503-9ba01dc6e2e6">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e568eca4-b5e1-4b67-83d6-d831adf05e23" />
+        <field name="Name" type="NameTableFieldDefinition" value="Circle of the Spores Druid 2" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_AnimatingSpores;Target_HaloOfSpores;Shout_SymbioticEntity" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>
