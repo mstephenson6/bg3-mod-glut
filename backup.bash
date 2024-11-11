@@ -31,6 +31,7 @@ if [ -z "$MOD_SUBDIR_NAME" ]; then
 fi
 
 for subdir in "${SUBDIR_LIST[@]}"; do
+	rm -rf "$subdir/$MOD_SUBDIR_NAME";
 	SRC_ABS_PATH="$BG3_DATA/$subdir/$MOD_SUBDIR_NAME";
 	if [ ! -d "$SRC_ABS_PATH" ]; then
 		continue;
