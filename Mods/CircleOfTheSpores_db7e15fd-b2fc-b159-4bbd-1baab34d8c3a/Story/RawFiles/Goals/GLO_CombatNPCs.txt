@@ -368,6 +368,19 @@ AND
 DB_CMB_SporeServantNPCFollower(_SporeServant,_Caster)
 THEN
 SetFaction(_SporeServant, _NewFaction);
+
+// mod_glut: remove lingering dead spore servants in saved games before 2.0
+IF
+SavegameLoaded()
+AND
+DB_PartyFollowers(_Follower)
+AND
+HasActiveStatus(_Follower, "CREATURE_SPORE_SERVANT", 1)
+AND
+IsDead(_Follower,1)
+THEN
+PROC_RemovePartyFollower(_Follower);
+
 //END_REGION
 
 //REGION Spider Infestation Status

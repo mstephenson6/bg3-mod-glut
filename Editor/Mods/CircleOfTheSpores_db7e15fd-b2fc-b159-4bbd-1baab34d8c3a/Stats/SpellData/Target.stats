@@ -16,7 +16,7 @@
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="HasSomaticComponent;IsEnemySpell" enumeration_type_name="SpellFlagList" version="1" />
         <field name="CastSound" type="StringTableFieldDefinition" value="CrSpell_Cast_AnimatingSpores" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h57b55c8dgbb38gf124g9d2dg8b00f6a6e8f2" version="5" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h57b55c8dgbb38gf124g9d2dg8b00f6a6e8f2" version="7" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4c724b78-3970-43ea-9109-3dde7df6eb53" />
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="b04345d2-17a5-4b20-b0a0-17f8e321f0a6" />
         <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerTurn" enumeration_type_name="CooldownType" version="1" />
