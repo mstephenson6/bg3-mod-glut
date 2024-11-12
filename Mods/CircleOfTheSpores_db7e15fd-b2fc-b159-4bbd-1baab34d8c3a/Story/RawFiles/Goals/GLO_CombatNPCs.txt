@@ -245,6 +245,8 @@ AND
 DB_CMB_SporeServantFollower((CHARACTER)_OldSporeServant,_Owner,_Caster)
 AND
 _Char != _OldSporeServant
+AND
+_Owner != _Caster // mod_glut: We excuse the player from the 1 servant cap
 THEN
 Die(_OldSporeServant,DEATHTYPE.DoT,NULL_00000000-0000-0000-0000-000000000000,0,0);
 
@@ -311,7 +313,6 @@ PROC_RemovePartyFollower(_SporeServant);
 
 
 // NPC summon that needs tracking in case caster faction changes
-// mod_glut: Ensure this doesn't run if a controllable party member is the caster
 PROC
 PROC_CMB_SporeServant_Create((CHARACTER)_Char, (CHARACTER)_Caster)
 AND
@@ -321,7 +322,7 @@ NOT DB_CMB_SporeServantFollower(_Char, _,_)
 AND
 IsPartyFollower(_Caster,0)
 AND
-IsPartyMember(_Caster,0,0)
+IsPartyMember(_Caster,0,0) // mod_glut: Also check that caster isn't a party *member*
 THEN
 DB_CMB_SporeServantNPCFollower((CHARACTER)_Char, (CHARACTER)_Caster);
 
