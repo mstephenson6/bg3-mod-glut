@@ -24,7 +24,7 @@ SUBDIR_LIST=(
 	"Generated/Public"
 )
 
-if [ -z "$MOD_SUBDIR_NAME" ]; then  
+if [ -z "$MOD_SUBDIR_NAME" ]; then
 	echo "MOD_SUBDIR_NAME must have a value in $(basename $BASH_SOURCE)";
 	return 1 2>/dev/null;
 	exit 1;
