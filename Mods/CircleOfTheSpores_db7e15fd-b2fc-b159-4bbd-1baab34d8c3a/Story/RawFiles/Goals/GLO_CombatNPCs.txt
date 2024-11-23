@@ -238,7 +238,8 @@ CharacterGetOwner(_Caster,_Owner)
 THEN
 PROC_CMB_SporeServant_AddToParty(_Char,_Owner,_Caster);
 
-//We only allow 1 spore servant follower here
+// mod_glut: We want to excuse the player from "only allow 1 spore servant follower"
+//           so we check _Owner != _Caster before killing _OldSporeServant
 PROC
 PROC_CMB_SporeServant_AddToParty((CHARACTER)_Char,(CHARACTER)_Owner,(CHARACTER)_Caster)
 AND
@@ -246,7 +247,7 @@ DB_CMB_SporeServantFollower((CHARACTER)_OldSporeServant,_Owner,_Caster)
 AND
 _Char != _OldSporeServant
 AND
-_Owner != _Caster // mod_glut: We excuse the player from the 1 servant cap
+_Owner != _Caster
 THEN
 Die(_OldSporeServant,DEATHTYPE.DoT,NULL_00000000-0000-0000-0000-000000000000,0,0);
 
@@ -380,6 +381,17 @@ AND
 IsDead(_Follower,1)
 THEN
 PROC_RemovePartyFollower(_Follower);
+
+// mod_glut: spore servants should always teleport to waypoints with their "Owner and Caster"
+//           this extends the PROC defined in _Waypoints
+PROC
+PROC_WaypointTeleported(_Owner,_Trigger)
+AND
+DB_CMB_SporeServantFollower(_SporeServant,_Owner,_Owner)
+THEN
+PlayEffect(_SporeServant, VFX_Script_Stub_Poof_01_f0cf792a-0f74-d17e-ad0d-6052a6131416);
+TeleportTo(_SporeServant, _Owner, "");
+PlayEffect(_SporeServant, VFX_Script_Stub_Poof_01_f0cf792a-0f74-d17e-ad0d-6052a6131416);
 
 //END_REGION
 
