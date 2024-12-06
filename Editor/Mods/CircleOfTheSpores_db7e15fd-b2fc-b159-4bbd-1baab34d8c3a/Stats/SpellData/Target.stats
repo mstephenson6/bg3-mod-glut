@@ -6,7 +6,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="3f7c53de-dadf-4482-b712-4f0e3e143cd9" />
         <field name="Name" type="NameTableFieldDefinition" value="AnimatingSpores" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="3" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Dead() and not Tagged('BLOCK_RESURRECTION') and not HasStatus('CREATURE_SPORE_SERVANT') and (Tagged('MONSTROSITY') or Tagged('HUMANOID') or Tagged('BEAST')  or Tagged('GIANT')) and not Party()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Dead() and not Tagged('BLOCK_RESURRECTION') and not HasStatus('CREATURE_SPORE_SERVANT') and (Tagged('MONSTROSITY') or Tagged('HUMANOID') or Tagged('BEAST')  or Tagged('GIANT') or Tagged('UNDEAD')) and not Party()" />
         <field name="Icon" type="StringTableFieldDefinition" value="Action_Glut_RaiseDeadViaSpores" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5c6f172cg48e6g2071gdac8gc076ac91b5c1" version="1" />
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="cc6063ad-e800-4e2d-baee-6620dae744ca,,;,,;f3fc78bb-d32c-4109-a723-7aec2888ea94,,;a37738d7-2fc0-41ba-af60-59b03395db54,,;a0a15c9e-0cbc-4086-90ff-a932c3027a98,,;,,;c7afcdc2-f42d-4aa7-b400-9794ba1ec84b,,;,,;,," />
@@ -16,7 +16,7 @@
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" value="HasSomaticComponent;IsEnemySpell" enumeration_type_name="SpellFlagList" version="1" />
         <field name="CastSound" type="StringTableFieldDefinition" value="CrSpell_Cast_AnimatingSpores" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h57b55c8dgbb38gf124g9d2dg8b00f6a6e8f2" version="8" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h57b55c8dgbb38gf124g9d2dg8b00f6a6e8f2" version="9" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4c724b78-3970-43ea-9109-3dde7df6eb53" />
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="b04345d2-17a5-4b20-b0a0-17f8e321f0a6" />
         <field name="Cooldown" type="EnumerationTableFieldDefinition" value="OncePerTurn" enumeration_type_name="CooldownType" version="1" />

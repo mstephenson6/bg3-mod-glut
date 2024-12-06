@@ -370,7 +370,7 @@ DB_CMB_SporeServantNPCFollower(_SporeServant,_Caster)
 THEN
 SetFaction(_SporeServant, _NewFaction);
 
-// mod_glut: remove lingering dead spore servants in saved games before 2.0
+// mod_glut: remove glitched servants from pre-2.0 savegames
 IF
 SavegameLoaded()
 AND
@@ -382,7 +382,17 @@ IsDead(_Follower,1)
 THEN
 PROC_RemovePartyFollower(_Follower);
 
-// mod_glut: spore servants should always teleport to waypoints with their "Owner and Caster"
+// mod_glut: force ApplyStatus on savegame load to nudge spore visuals,
+//           fixes an issue where servants looked normal until interacting
+//           with them
+IF
+SavegameLoaded()
+AND
+DB_CMB_SporeServantFollower(_SporeServant,_Owner,_Owner)
+THEN
+ApplyStatus(_SporeServant, "CREATURE_SPORE_SERVANT", -1.0, 1, _Owner);
+
+// mod_glut: spore servants from this mod should always teleport to waypoints with their owner,
 //           this extends the PROC defined in _Waypoints
 PROC
 PROC_WaypointTeleported(_Owner,_Trigger)
