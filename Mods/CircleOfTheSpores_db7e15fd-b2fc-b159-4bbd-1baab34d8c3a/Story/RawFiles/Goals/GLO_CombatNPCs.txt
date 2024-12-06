@@ -382,15 +382,16 @@ IsDead(_Follower,1)
 THEN
 PROC_RemovePartyFollower(_Follower);
 
-// mod_glut: force ApplyStatus on savegame load to nudge spore visuals,
-//           fixes an issue where servants looked normal until interacting
-//           with them
+// mod_glut: fixes an issue where servants looked normal until interacting with them
 IF
 SavegameLoaded()
 AND
-DB_CMB_SporeServantFollower(_SporeServant,_Owner,_Owner)
+DB_CMB_SporeServantFollower(_Follower,_Owner,_Owner)
+AND
+HasActiveStatus(_Follower, "CREATURE_SPORE_SERVANT", 1)
 THEN
-ApplyStatus(_SporeServant, "CREATURE_SPORE_SERVANT", -1.0, 1, _Owner);
+RemoveStatus(_Follower, "CREATURE_SPORE_SERVANT", _Owner);
+ApplyStatus(_Follower, "CREATURE_SPORE_SERVANT", -1.0, 1, _Owner);
 
 // mod_glut: spore servants from this mod should always teleport to waypoints with their owner,
 //           this extends the PROC defined in _Waypoints
