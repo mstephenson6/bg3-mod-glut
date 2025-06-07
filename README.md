@@ -8,7 +8,7 @@
 
 [Home](https://circleofthespores.dev) | [Download](https://mod.io/g/baldursgate3/m/circle-of-the-spores-dev) | [Open source](https://github.com/mstephenson6/bg3-mod-glut/tree/main)
 
-### **1.&#x20;****Unlimited Servants**
+### **1. Unlimited Servants******
 
 Keep all the servants you wish. Resurrect them from anywhere, and they group with you until they're permanently defeated.
 
