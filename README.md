@@ -8,7 +8,7 @@
 
 [Home](https://circleofthespores.dev) | [Download](https://mod.io/g/baldursgate3/m/circle-of-the-spores-dev) | [Open source](https://github.com/mstephenson6/bg3-mod-glut/tree/main)
 
-### **1. Unlimited Servants******
+### **1. Unlimited Servants**
 
 Keep all the servants you wish. Resurrect them from anywhere, and they group with you until they're permanently defeated.
 
@@ -22,7 +22,7 @@ Use all your servants' actions, bonus actions, cantrips, passives, and spell slo
 
 This Spore Servant Entombed Scribe casts *Silence* on a scribe that will shortly join the party:
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfgoZBg-m6rzmC1adbn8u6Fa_ah7yuJsdxBzsTtsQSZsl4cU8lfaVTsl72lVEASFheNHB7hIf4npZPLHEZNJ9ffTWd4C95QQ9PPVWSdwhQFSGl4zhN3Y5noOzluj6i80FEJ6RRy?key=MillLzlOW0L4C_nAUsXejC07)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfE5vj2MjZJnZE7rNpA9lczby_b0XnWe-BL61ona3lLAvfdqAc-JhCsFcufXlhaf6kp8fHAGoBnj-Y2x7zu2vTi4hNdl0JGQV4NF0j8MKoNyHDEBKtpcqh_4YW4vulr3Fun1leX?key=MillLzlOW0L4C_nAUsXejC07)
 
 ### **3. Animate Giants & Undead**
 
