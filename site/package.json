@@ -15,7 +15,8 @@
     "@types/hast": "^3.0.4",
     "@types/node": "^22.15.23",
     "serve": "^14.2.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "wrangler": "^4.19.1"
   },
   "dependencies": {
     "@googleworkspace/google-docs-hast": "^1.0.5",
