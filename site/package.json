@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "types": "tsc",
+    "start": "NODE_OPTIONS=\"--disable-warning=ExperimentalWarning --experimental-strip-types\" node index.ts"
   },
   "author": "",
   "license": "MIT",
@@ -16,6 +17,8 @@
   "dependencies": {
     "@googleworkspace/google-docs-hast": "^1.0.5",
     "dotenv": "^16.5.0",
+    "hast-util-to-mdast": "^10.1.2",
+    "mdast-util-to-markdown": "^2.1.2",
     "rehype-document": "^7.0.3",
     "rehype-format": "^5.0.1",
     "rehype-stringify": "^10.0.1",

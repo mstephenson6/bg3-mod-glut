@@ -7,6 +7,10 @@ import rehypeStringify from "rehype-stringify";
 import { CONTINUE, EXIT, SKIP, visit } from "unist-util-visit";
 import { reporter } from "vfile-reporter";
 import { toHast } from "@googleworkspace/google-docs-hast";
+import { toMdast } from "hast-util-to-mdast";
+import { toMarkdown } from "mdast-util-to-markdown";
+
+import { writeFile } from "node:fs/promises";
 
 const accessToken = async () => {
   if (process.env.GOOGLE_ACCESS_TOKEN) {
@@ -57,9 +61,12 @@ const toCleanHast = async (documentId: string) => {
 };
 
 const main = async () => {
+  const MARKDOWN_OUTPUT = "../README.md";
   const SITE_INDEX_DOCUMENT_ID = "11nWtOTEWcI_TEt8WE1vfS3_NsWLIDIK01ClhKDgmJiY";
-  console.log(
-    JSON.stringify(await toCleanHast(SITE_INDEX_DOCUMENT_ID), null, 2),
-  );
+  const cleanHast = await toCleanHast(SITE_INDEX_DOCUMENT_ID);
+  const mdast = toMdast(cleanHast);
+  const markdown = toMarkdown(mdast);
+  await writeFile(MARKDOWN_OUTPUT, markdown);
 };
+
 await main();
