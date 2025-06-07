@@ -5,13 +5,16 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "types": "tsc",
-    "start": "NODE_OPTIONS=\"--disable-warning=ExperimentalWarning --experimental-strip-types\" node index.ts"
+    "build": "NODE_OPTIONS=\"--disable-warning=ExperimentalWarning --experimental-strip-types\" node index.ts",
+    "serve": "serve -s dist",
+    "types": "tsc"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/hast": "^3.0.4",
     "@types/node": "^22.15.23",
+    "serve": "^14.2.4",
     "typescript": "^5.8.3"
   },
   "dependencies": {
@@ -21,6 +24,7 @@
     "mdast-util-to-markdown": "^2.1.2",
     "rehype-document": "^7.0.3",
     "rehype-format": "^5.0.1",
+    "rehype-meta": "^4.0.1",
     "rehype-stringify": "^10.0.1",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",

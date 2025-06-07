@@ -4,13 +4,14 @@ import { unified } from "unified";
 import rehypeDocument from "rehype-document";
 import rehypeFormat from "rehype-format";
 import rehypeStringify from "rehype-stringify";
-import { CONTINUE, EXIT, SKIP, visit } from "unist-util-visit";
-import { reporter } from "vfile-reporter";
+import { visit } from "unist-util-visit";
 import { toHast } from "@googleworkspace/google-docs-hast";
 import { toMdast } from "hast-util-to-mdast";
 import { toMarkdown } from "mdast-util-to-markdown";
 
-import { writeFile } from "node:fs/promises";
+import { cp, writeFile } from "node:fs/promises";
+import { sporesDocId, sporesDocOpts, sporesMetaOpts } from "./options.ts";
+import rehypeMeta from "rehype-meta";
 
 const accessToken = async () => {
   if (process.env.GOOGLE_ACCESS_TOKEN) {
@@ -61,12 +62,52 @@ const toCleanHast = async (documentId: string) => {
 };
 
 const main = async () => {
+  const HTML_OUTPUT = "dist/index.html";
+  const ASSETS_SRC_DIR = "assets";
+  const ASSETS_DEST_DIR = "dist";
   const MARKDOWN_OUTPUT = "../README.md";
-  const SITE_INDEX_DOCUMENT_ID = "11nWtOTEWcI_TEt8WE1vfS3_NsWLIDIK01ClhKDgmJiY";
-  const cleanHast = await toCleanHast(SITE_INDEX_DOCUMENT_ID);
+
+  const cleanHast = await toCleanHast(sporesDocId);
+
   const mdast = toMdast(cleanHast);
   const markdown = toMarkdown(mdast);
   await writeFile(MARKDOWN_OUTPUT, markdown);
+  console.debug(`Wrote ${MARKDOWN_OUTPUT}`);
+
+  await cp(ASSETS_SRC_DIR, ASSETS_DEST_DIR, { recursive: true });
+  console.debug(`Copied ${ASSETS_SRC_DIR} to ${ASSETS_DEST_DIR}`);
+
+  const { children } = cleanHast;
+  const outputHast = await unified()
+    .use(rehypeDocument, sporesDocOpts)
+    .use(rehypeMeta, sporesMetaOpts)
+    .use(rehypeFormat)
+    .run({
+      type: "root",
+      children: [
+        {
+          type: "element",
+          tagName: "header",
+          properties: {},
+          children: [],
+        },
+        {
+          type: "element",
+          tagName: "main",
+          properties: {},
+          children,
+        },
+        {
+          type: "element",
+          tagName: "footer",
+          properties: {},
+          children: [],
+        },
+      ],
+    });
+  const html = unified().use(rehypeStringify).stringify(outputHast);
+  await writeFile(HTML_OUTPUT, html);
+  console.debug(`Wrote ${HTML_OUTPUT}`);
 };
 
 await main();

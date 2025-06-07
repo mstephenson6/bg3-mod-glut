@@ -14,7 +14,7 @@ Keep all the servants you wish. Resurrect them from anywhere, and they group wit
 
 This party includes Spore Servants of goblins, worgs, cultists and Owlbear Mother:
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeeB7Soxux2QhOhNfrXyyAe6xxJdeNM15Kt6DAce5Wt3PfhPrG_-Yrn3NJR8tvO-A7hMwwRY-wp3-QFBO3-3IZfMZfgfdZsJBJ-8Mp4K_qKXwY4m_5QaRdLViutgwxn5QGenEX6vA?key=MillLzlOW0L4C_nAUsXejC07)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXe220zHEDg97VnC2-cwq9QSLSNj5plIO7bMU1CKZeFby3LCJwI_cRBOK8WwwZNkkY4wn6V6r36ONXYusB60effOPwDuWC26UlU7v3bGA3L54AWJ5YxvcCY-qOjUuqnRR2lxkhXGyw?key=MillLzlOW0L4C_nAUsXejC07)
 
 ### **2. Unlocked Casting**
 
@@ -22,7 +22,7 @@ Use all your servants' actions, bonus actions, cantrips, passives, and spell slo
 
 This Spore Servant Entombed Scribe casts *Silence* on a scribe that will shortly join the party:
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfE5vj2MjZJnZE7rNpA9lczby_b0XnWe-BL61ona3lLAvfdqAc-JhCsFcufXlhaf6kp8fHAGoBnj-Y2x7zu2vTi4hNdl0JGQV4NF0j8MKoNyHDEBKtpcqh_4YW4vulr3Fun1leX?key=MillLzlOW0L4C_nAUsXejC07)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfLUbBF9kSnL0-oGguB8ljsqSfjAWXcURDM1zMelzs6MHTSyLLXsXBHgq5SZN-wAMs3vR4ueOjlqc4ZuQLcklotY1PANOraFf5KuJVKNd9ruOzOEbF1C8340xhtcmcg-vCKa-Mh?key=MillLzlOW0L4C_nAUsXejC07)
 
 ### **3. Animate Giants & Undead**
 
@@ -30,6 +30,6 @@ You can resurrect creatures beyond humanoids, beasts and monstrosities.
 
 Create any party you want, like this trio of familiar ogres:
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeObK2-PndwluXiFCIeajVYtLZxjqh1g5PRNSytjanX2ef_jfvj1fyqPrSpJOsd-htvmZ5qL6SIv9uuQUX2ue3Yk5tB_r9EZmgJKWci2Zr2zA-B4lVm1YpwZxsibjfW96jmuJS8Qg?key=MillLzlOW0L4C_nAUsXejC07)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdVGzebewuET5RRE5wwdURZaalOWvHFidh-z4EZHEwJLgw5NN1Ga5A81dM17cQLtYKq0Z8FGYyLq-AlBUvBuamGItwCwancSC55Nt9KaYPT5nkKz0YBvFq8EGlHIyZlSeB-4P8XHQ?key=MillLzlOW0L4C_nAUsXejC07)
 
 Last updated: April 20, 2025
