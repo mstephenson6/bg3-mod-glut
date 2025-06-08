@@ -16,6 +16,12 @@ DB_Follower_AnimatingSpore_Spellset("AnimateSporeCreatureActions");
 NOT DB_Spell_DominateBeastFollower((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
 NOT DB_GLO_Spells_AnimateDead((GUIDSTRING)NULL_00000000-0000-0000-0000-000000000000, (GUIDSTRING)NULL_00000000-0000-0000-0000-000000000000);
 KBSECTION
+// mod_glut: add actions for spore servant management
+IF
+DB_PartyFollowers(_Follower)
+THEN
+PROC_PartyFollower_AddAction(_Follower,"Shout_Dismiss_Self");
+
 //REGION QRY to check if follower is the special-cases from the AnimatingSporeCreature list
 QRY
 QRY_IsAnimatingSporeCreature((CHARACTER)_Follower)
