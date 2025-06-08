@@ -16,7 +16,7 @@ DB_Follower_AnimatingSpore_Spellset("AnimateSporeCreatureActions");
 NOT DB_Spell_DominateBeastFollower((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
 NOT DB_GLO_Spells_AnimateDead((GUIDSTRING)NULL_00000000-0000-0000-0000-000000000000, (GUIDSTRING)NULL_00000000-0000-0000-0000-000000000000);
 KBSECTION
-// mod_glut: add Dismiss Summon to servants' actions
+//REGION mod_glut: add Dismiss Summon to servants' actions
 IF
 DB_PartyFollowers(_Follower)
 AND
@@ -33,6 +33,17 @@ AND
 DB_PartyFollowers(_Follower)
 THEN
 Die(_Follower,DEATHTYPE.DoT,NULL_00000000-0000-0000-0000-000000000000,0,0);
+
+// mod_glut: add Dissmiss Summon to servants already created before version 5.0
+IF
+SavegameLoaded()
+AND
+DB_PartyFollowers(_Follower)
+AND
+DB_CMB_SporeServantFollower(_Follower,_Owner,_Caster)
+THEN
+PROC_PartyFollower_AddAction(_Follower,"Shout_Dismiss_Self");
+//END_REGION
 
 //REGION QRY to check if follower is the special-cases from the AnimatingSporeCreature list
 QRY

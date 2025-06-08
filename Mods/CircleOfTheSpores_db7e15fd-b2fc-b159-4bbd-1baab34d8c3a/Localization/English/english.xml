@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <contentList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <content contentuid="h5c6f172cg48e6g2071gdac8gc076ac91b5c1" version="1">Animating Spores</content>
-  <content contentuid="h57b55c8dgbb38gf124g9d2dg8b00f6a6e8f2" version="14">Release spores at a corpse to animate it as a spore servant under your command [mod_glut 4.0.4]</content>
+  <content contentuid="h57b55c8dgbb38gf124g9d2dg8b00f6a6e8f2" version="15">Release spores at a corpse to animate it as a spore servant under your command [mod_glut 5.0]</content>
   <content contentuid="hfd9805e4g49ecg6878g43b1g452dd4c204f7" version="1">Spore Servant</content>
   <content contentuid="hb1071a47g72a9g6657g4c96g18646f65c374" version="1">The animating spores of a myconid sovereign have taken over this dead creature's body, moving it according to the sovereign's will.</content>
 </contentList>

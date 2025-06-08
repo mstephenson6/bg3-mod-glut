@@ -29,10 +29,10 @@
                     <attribute id="Author" type="LSString" value="mstephenson6"/>
                     <attribute id="CharacterCreationLevelName" type="FixedString" value=""/>
                     <attribute id="Description" type="LSString" value="Circle of the Spores Druids create unlimited servants with unlocked casting."/>
-                    <attribute id="FileSize" type="uint64" value="24252583"/>
+                    <attribute id="FileSize" type="uint64" value="22460845"/>
                     <attribute id="Folder" type="LSString" value="CircleOfTheSpores_db7e15fd-b2fc-b159-4bbd-1baab34d8c3a"/>
                     <attribute id="LobbyLevelName" type="FixedString" value=""/>
-                    <attribute id="MD5" type="LSString" value="04b98061e856dfe6edeb28333313a6c8"/>
+                    <attribute id="MD5" type="LSString" value="d3c7c25bed763d044a2cc9231d63f776"/>
                     <attribute id="MenuLevelName" type="FixedString" value=""/>
                     <attribute id="Name" type="LSString" value="Glut&apos;s Circle of Animating Spores"/>
                     <attribute id="NumPlayers" type="uint8" value="4"/>
@@ -40,7 +40,7 @@
                     <attribute id="PublishHandle" type="uint64" value="4356748"/>
                     <attribute id="StartupLevelName" type="FixedString" value=""/>
                     <attribute id="UUID" type="FixedString" value="db7e15fd-b2fc-b159-4bbd-1baab34d8c3a"/>
-                    <attribute id="Version64" type="int64" value="180143985094819872"/>
+                    <attribute id="Version64" type="int64" value="180143989389787172"/>
                     <children>
                         <node id="PublishVersion">
                             <attribute id="Version64" type="int64" value="144255927717549775"/>
