@@ -22,7 +22,7 @@ Use all your servants' actions, bonus actions, cantrips, passives, and spell slo
 
 This Spore Servant Entombed Scribe casts *Silence* on a scribe that will shortly join the party:
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXd0T1_R34wa5UYZKSURLsbhQvU9l0d-WdDVAA-qi4MMb3bwfAjhZoIGKJZwNEv_x23T0DEPL6hCwjIgaa7KuecnGqel0QhKMPP34TvPUhXFnbM-eZ9LHhZMtgyHHJcp5HgQMWw8PdMjcojBn5qznbI1VQ?key=MillLzlOW0L4C_nAUsXejC07)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdedp8FDY6nklHxwkhXsnn92EJ0I7lTryVlLqSeEZ-sJf08MFlQiWJuCiQ-UW3cPPHTyS79WwVndMgkM6itrDhDIdOtilOoEXnIxTCFKRpwdSxa8obfcKnb13rXL4ZNlWBKhVUJw4zMc9b7PF6LqzDv9A?key=MillLzlOW0L4C_nAUsXejC07)
 
 ### **3. Animate Giants & Undead**
 
@@ -30,6 +30,6 @@ You can resurrect creatures beyond humanoids, beasts and monstrosities.
 
 Create any party you want, like this trio of familiar ogres:
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXetppnvFW--7cM82ydIHv6wvTZXB51_DIeUVbLECNyRGPEoU6u-O2kbLSlYT-N-Zj8ZYB2SYK1CzkwNWcnsgM1jdIklJxGpRTBgsyRosy2IeH9Bwt4jO5JgY_3ThiwNrgo750ujWaEAE9BeZ214goI9BzBS?key=MillLzlOW0L4C_nAUsXejC07)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfs6sAi2kLY3-aO4inV_F0FW4ZMvS5Uy7zVjMRjyE04khWdnXDm_fhnoPhF9Ind4Hkh43RzqeolFbj6pHroV5tShGUXPa8RQm2loXDaPVIxd3offmdVYfpWDKZf58MUdEFK3SJvDzA3jMzftBvUXrEpmhdO?key=MillLzlOW0L4C_nAUsXejC07)
 
 Last updated: April 12, 2026
