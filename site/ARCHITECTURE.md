@@ -11,10 +11,10 @@ around it.
 
 ```
 site/
-  index.ts                  ← entry point: declares pipelines, runs them
-  documents/
-    spores.ts               ← per-document config (renderers + options)
+  index.ts                  ← entry point: reads documents.json, runs pipelines
+  documents.json            ← document registry (add new docs here — no code required)
   src/
+    config.ts               ← JSON config loader → DocumentPipeline[]
     types.ts                ← Renderer and DocumentPipeline interfaces
     auth.ts                 ← Google OAuth2 token resolution
     google-docs.ts          ← Google Docs REST API client
@@ -26,7 +26,7 @@ site/
 ```
 
 Each layer has exactly one reason to change. Layers only import downward
-(entry point → documents → src). No module in `src/` imports from `documents/`.
+(entry point → src). No module in `src/` imports from the entry point.
 
 ---
 
@@ -46,35 +46,42 @@ interface Renderer {
 
 To add a new output format — RSS, JSON, a PDF via a headless browser, a second
 HTML variant — write a factory function in a new file under `src/renderers/` and
-add it to the `renderers` array of the relevant document config. Nothing else
-changes.
+add it to the `renderers` array of the relevant document entry in
+`documents.json`. Nothing else changes.
 
 Renderers **must treat the HAST tree as read-only**. `stripStyles()` in
 `src/hast.ts` removes all presentation data before the tree reaches any
 renderer; renderers apply their own presentation layer and must not mutate the
 shared tree.
 
-### 2. A document is a `DocumentPipeline`: an ID and a list of renderers
+### 2. A document is a JSON entry in `documents.json`
+
+To add a second Google Doc, add a new entry to `documents.json` — no code
+required. The entry follows the `DocumentConfig` schema defined in
+`src/config.ts`, which is the bridge between the JSON data and the
+`DocumentPipeline` values that `runPipeline` expects.
 
 ```ts
-interface DocumentPipeline {
+interface DocumentConfig {
   readonly documentId: string;
-  readonly renderers: readonly Renderer[];
+  readonly renderers: readonly RendererConfig[];
 }
 ```
 
-To add a second Google Doc, create a new file in `documents/`, export a
-`DocumentPipeline` value, and call `runPipeline` once more in `index.ts`. The
-two pipelines are fully independent and can run concurrently with `Promise.all`
-if their output paths don't conflict.
+`src/config.ts` maps each `DocumentConfig` to a `DocumentPipeline` via
+`buildPipelinesFromConfig`, which resolves each renderer config
+(`{ type: "markdown" | "html", ...options }`) to the appropriate `Renderer`
+factory. Adding a new renderer type means adding a new member to the
+`RendererConfig` union and a new `case` in `buildPipelinesFromConfig` —
+nothing in the entry point or in any document data changes.
 
 All document-specific values — the Google Doc ID, `rehype-document` options,
-`rehype-meta` options, output paths — live in that document's config file.
+`rehype-meta` options, output paths — live in `documents.json`.
 Nothing document-specific belongs in `src/`.
 
 ### 3. Assets are a build-level concern owned by the entry point
 
-Asset copies are declared in `index.ts`, not inside any `DocumentPipeline`.
+Asset copies are performed in `index.ts`, after all pipelines have settled.
 Assets are typically shared across all documents in a build; if they lived
 inside a pipeline config they would be copied once per document. The entry
 point owns this step and is responsible for ensuring assets are only copied
@@ -96,19 +103,22 @@ without touching anything else.
 
 ```
 index.ts
-  └─ runPipeline(documentPipeline, { assets })        [src/pipeline.ts]
-       │
-       ├─ 1. fetchAndTransform(documentId)             [src/hast.ts]
-       │       ├─ fetchDocument(documentId)            [src/google-docs.ts]
-       │       │     └─ getAccessToken()               [src/auth.ts]
-       │       ├─ googleDocToHast(doc)
-       │       └─ stripStyles(tree)
-       │
-       ├─ 2. Promise.all(renderers.map(r => r.render(hast)))
-       │       ├─ MarkdownRenderer.render(hast)        [src/renderers/markdown.ts]
-       │       └─ HtmlRenderer.render(hast)            [src/renderers/html.ts]
-       │
-       └─ 3. cp(src, dest) for each AssetCopy
+  ├─ reads documents.json
+  ├─ buildPipelinesFromConfig(configs)               [src/config.ts]
+  │
+  ├─ Promise.all(pipelines.map(runPipeline))          [src/pipeline.ts]
+  │    │
+  │    ├─ 1. fetchAndTransform(documentId)            [src/hast.ts]
+  │    │       ├─ fetchDocument(documentId)           [src/google-docs.ts]
+  │    │       │     └─ getAccessToken()              [src/auth.ts]
+  │    │       ├─ googleDocToHast(doc)
+  │    │       └─ stripStyles(tree)
+  │    │
+  │    └─ 2. Promise.all(renderers.map(r => r.render(hast)))
+  │            ├─ MarkdownRenderer.render(hast)       [src/renderers/markdown.ts]
+  │            └─ HtmlRenderer.render(hast)           [src/renderers/html.ts]
+  │
+  └─ cp("assets", "dist") once after all pipelines settle
 ```
 
 ---
@@ -118,11 +128,15 @@ index.ts
 **Add a new output format for an existing document**
 1. Create `src/renderers/<format>.ts` exporting a factory that returns a
    `Renderer`.
-2. Import the factory in `documents/<doc>.ts` and add it to `renderers`.
+2. Add a new member to the `RendererConfig` union in `src/config.ts` and a
+   matching `case` to the `switch` in `buildPipelinesFromConfig`.
+3. Add a renderer entry with `"type": "<format>"` to the relevant document
+   in `documents.json`.
 
 **Add a new document**
-1. Create `documents/<name>.ts` exporting a `DocumentPipeline`.
-2. Import it in `index.ts` and call `runPipeline`.
+1. Add a new entry to `documents.json` with a `documentId` and a `renderers`
+   array. No code is required — `src/config.ts` translates the JSON
+   automatically.
 
 **Add a new document source (not Google Docs)**
 1. Create `src/<source>-client.ts` analogous to `src/google-docs.ts`.
