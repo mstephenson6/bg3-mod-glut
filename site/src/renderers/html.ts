@@ -15,7 +15,7 @@ import rehypeFormat from "rehype-format";
 import rehypeStringify from "rehype-stringify";
 import rehypeMeta from "rehype-meta";
 import { writeFile } from "node:fs/promises";
-import type { Root, Element } from "hast";
+import type { Root, Element, ElementContent } from "hast";
 import type { Options as DocumentOptions } from "rehype-document";
 import type { Options as MetaOptions } from "rehype-meta";
 import type { Renderer } from "../types.ts";
@@ -49,7 +49,7 @@ export interface HtmlRendererOptions {
  * Returns a minimal HAST Root whose children can be processed by
  * rehype-document into a complete HTML page.
  */
-const buildPageLayout = (contentChildren: Root["children"]): Root => ({
+const buildPageLayout = (contentChildren: ElementContent[]): Root => ({
   type: "root",
   children: [
     {
@@ -95,7 +95,7 @@ export const createHtmlRenderer = (options: HtmlRendererOptions): Renderer => ({
   label: `HTML → ${options.outputPath}`,
 
   async render(hast: Root): Promise<void> {
-    const layout = buildPageLayout(hast.children);
+    const layout = buildPageLayout(hast.children as ElementContent[]);
 
     const outputHast = await unified()
       .use(rehypeDocument, options.documentOptions)
