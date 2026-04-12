@@ -7,6 +7,7 @@
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"--disable-warning=ExperimentalWarning --experimental-strip-types\" node index.ts",
     "test:e2e": "cross-env NODE_OPTIONS=\"--disable-warning=ExperimentalWarning --experimental-strip-types\" node --test test/e2e.ts",
+    "ci": "npm run build && npm run test:e2e",
     "serve": "serve -s dist",
     "types": "tsc"
   },
