@@ -1,6 +1,7 @@
 [
   {
     "documentId": "11nWtOTEWcI_TEt8WE1vfS3_NsWLIDIK01ClhKDgmJiY",
+    "transformers": [{ "type": "identity" }],
     "renderers": [
       {
         "type": "markdown",
