@@ -1,5 +1,48 @@
 # Testing & Credentials Setup
 
+## End-to-end content test
+
+`npm run test:e2e` compares the `<main>` content of the most recently built
+`dist/index.html` against the currently hosted `circleofthespores.dev`.  It
+requires no credentials — only a completed local build and a network connection.
+
+### What it checks
+
+The test extracts the inner content of the `<main>` element from both sources,
+strips all HTML tags, decodes entities, and collapses whitespace before
+comparing.  This makes it immune to cosmetic pipeline changes (indentation,
+attribute ordering, tag formatting) while still catching any change in actual
+document content.
+
+### Running it
+
+```
+npm run build       # fetch from Google Docs, write dist/index.html
+npm run test:e2e    # compare dist/index.html <main> to live site
+```
+
+Or use the combined script that does both in sequence:
+
+```
+npm run ci
+```
+
+### Interpreting results
+
+| Result | Meaning |
+|---|---|
+| ✔ pass | Local build output matches what is currently live — safe to deploy |
+| ✖ fail (content diff) | The Google Doc has changed since the last deploy, or a transformer altered the output — review the diff before deploying |
+| ✖ fail (no `<main>`) | The HTML structure is broken — the renderer or a transformer produced invalid output |
+| ✖ fail (network error) | `circleofthespores.dev` could not be reached — check connectivity |
+
+The test is intentionally strict: a content change that has not yet been
+deployed will always fail.  That is the point — it surfaces the delta between
+the current build and what users are seeing before you push.
+
+---
+
+
 ## Getting a Google OAuth2 Refresh Token
 
 The build pipeline fetches documents from the Google Docs API using OAuth2.
