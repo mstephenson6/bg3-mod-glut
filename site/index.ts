@@ -6,8 +6,9 @@ import { runPipeline } from "./src/pipeline.ts";
 import { buildPipelinesFromConfig } from "./src/config.ts";
 import type { DocumentConfig } from "./src/config.ts";
 
+const configPath = process.argv[2] ?? "./documents.json";
 const configs = JSON.parse(
-  await readFile("./documents.json", "utf-8"),
+  await readFile(configPath, "utf-8"),
 ) as DocumentConfig[];
 
 const pipelines = buildPipelinesFromConfig(configs);
