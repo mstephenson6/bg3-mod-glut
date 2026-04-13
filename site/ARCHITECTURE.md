@@ -103,6 +103,11 @@ A transformer that does not need to change the tree should return its input
 unchanged (see `src/transformers/identity.ts`).
 
 Renderers still receive the tree as read-only after all transformers have run.
+
+The standard tool for walking HAST nodes inside a transformer is
+`unist-util-visit` (already a dependency). Use it to visit specific node types
+and modify or replace them in place.
+
 Adding a transformer means:
 1. Creating a file in `src/transformers/`.
 2. Adding its config type as a new member of the `TransformerConfig` union in
@@ -111,6 +116,22 @@ Adding a transformer means:
    `buildPipelinesFromConfig`.
 4. Listing it under `"transformers"` in the relevant document entry in
    `documents.json`.
+
+**Config type pattern.** If the transformer takes no options, use a plain
+literal: `type FooConfig = { readonly type: "foo" }`. If it takes options,
+use the intersection pattern (same convention as renderer configs):
+`type FooConfig = { readonly type: "foo" } & FooTransformerOptions`, where
+`FooTransformerOptions` is the options interface accepted by the factory
+function.
+
+**Exhaustiveness guard.** The `default` branch of the transformer `switch` in
+`buildPipelinesFromConfig` (`src/config.ts`) currently uses a runtime `throw`
+instead of the `const _exhaustive: never = transformerConfig` pattern, because
+`TransformerConfig` is presently a single-type alias and TypeScript does not
+narrow a single type to `never`. When you add the **second** transformer type
+— turning `TransformerConfig` into a true `A | B` union — uncomment the
+`_exhaustive` line in that `default` branch. TypeScript will then error at
+compile time whenever a union member is missing a `case`.
 
 ### 4. Assets are a build-level concern owned by the entry point
 
@@ -178,11 +199,18 @@ index.ts
 **Add a new transformer**
 1. Create `src/transformers/<name>.ts` exporting a factory function that
    returns a `Transformer`.  Use `src/transformers/identity.ts` as the
-   reference implementation — it shows the minimal shape required.
-2. Add a new config type (e.g. `MyTransformerConfig = { readonly type: "<name>"; ... }`)
-   and include it in the `TransformerConfig` union in `src/config.ts`.
+   reference implementation — it shows the minimal shape required.  If the
+   transformer accepts options, the factory signature should be
+   `createFooTransformer(options: FooTransformerOptions): Transformer`.
+2. Add a new config type and include it in the `TransformerConfig` union in
+   `src/config.ts`.  No options: `type FooConfig = { readonly type: "foo" }`.
+   With options: `type FooConfig = { readonly type: "foo" } & FooTransformerOptions`.
 3. Add a matching `case` to the transformer `switch` inside
-   `buildPipelinesFromConfig` in `src/config.ts`.
+   `buildPipelinesFromConfig` in `src/config.ts`.  If this is the **second**
+   transformer type being added, also uncomment the
+   `const _exhaustive: never = transformerConfig` line in the `default` branch
+   — it was left as a comment because a single-type alias cannot be narrowed to
+   `never`, but a two-member union can.
 4. Add a transformer entry with `"type": "<name>"` (and any options) to the
    `"transformers"` array of the relevant document in `documents.json`.
 
